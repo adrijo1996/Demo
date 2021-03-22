@@ -1,0 +1,16 @@
+body {
+  background-color: #4aba91;
+  justify-content: space-between;
+}
+
+#root {
+  border: 5px solid #0e5135;
+  justify-content: center;
+  background-color: white;
+}
+
+canvas {
+  margin: auto;
+  display: block;
+  justify-content: space-around;
+}
