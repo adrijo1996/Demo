@@ -1,14 +1,43 @@
 body {
-  background-color: #4aba91;
+  background-color: #0d9263;
   margin: 0;
   display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100vw;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
+.triforce {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 60px 110px 60px;
+  border-color: transparent transparent #d4ce46 transparent;
+  position: relative;
+  margin: 15px auto 0 auto;
+  z-index: 2;
+}
+.triforce:before {
+  content: "";
+  display: block;
+  border-style: solid;
+  border-width: 55px 30px 0 30px;
+  border-color: #0d9263 transparent transparent transparent;
+  z-index: -1;
+  position: relative;
+  left: -30px;
+  top: 55px;
+}
+
+h1 {
+  font-size: 4em;
+  color: red;
+  text-shadow: 2px 2px black;
+}
+
 #root {
-  border: 5px solid #0e5135;
+  border: 7px solid #0e5135;
   background-color: white;
 }
