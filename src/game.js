@@ -1,11 +1,12 @@
 import Zelda from "./actors/Zelda";
+import Rupee from "./actors/Rupee";
 
 window.addEventListener("load", () => {
   const canvas = document.getElementById("root");
 
   const ctx = canvas.getContext("2d");
 
-  const actors = [new Zelda()];
+  const actors = [new Zelda(), new Rupee()];
 
   let lastFrame = 0;
   const render = (time) => {
