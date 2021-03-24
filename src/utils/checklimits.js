@@ -1,7 +1,5 @@
-import Points from "../types/Points";
-
 const checkLimits = (pos) => {
-  if (pos.x < 600 && pos.x > 0 && pos.y < 400 && pos.y > 0) {
+  if (pos.x < 570 && pos.x > 10 && pos.y < 370 && pos.y > 10) {
     return true;
   }
   return false;

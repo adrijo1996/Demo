@@ -1,4 +1,4 @@
-const greenRupee = require("../../assets/greenRupee.png");
+const RedRupee = require("../../assets/RedRupee.png");
 
 class Rupee {
   constructor(pos = { x: 300, y: 300 }, color = "#0d9263") {
@@ -10,14 +10,16 @@ class Rupee {
     this.y_speed = 5;
     this.direction_y = 1;
     this.image = new Image();
-    this.image.src = greenRupee;
+    this.image.src = RedRupee;
   }
 
   draw(ctx, delta) {
     ctx.fillStyle = this.color;
-    ctx.fillRect(this.pos.x, this.pos.y, 20, 30);
-    ctx.drawImage(this.image, this.pos.x, this.pos.y, 20, 30);
+    ctx.fillRect(this.pos.x, this.pos.y, 30, 30);
+    ctx.drawImage(this.image, this.pos.x, this.pos.y, 30, 30);
   }
+  keyboardEventDown(key) {}
+  keyboardEventUp(key) {}
 }
 
 export default Rupee;

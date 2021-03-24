@@ -1,40 +1,54 @@
-//import checkLimits from "../utils/checklimits";
+import checkLimits from "../utils/checklimits";
 
-const greenRupee = require("../../assets/greenRupee.png");
+const RedRupee = require("../../assets/RedRupee.png");
 
 class Zelda {
   constructor(pos = { x: 100, y: 100 }, color = "#0d9263") {
     this.color = color;
     this.pos = pos;
-    this.angle = 30;
-    this.x_speed = 5;
-    this.direction_x = 1;
-    this.y_speed = 5;
-    this.direction_y = 1;
+    this.speed = 3;
+    this.directionX = 0;
+    this.directionY = 0;
     this.image = new Image();
-    this.image.src = greenRupee;
+    this.image.src = RedRupee;
   }
 
   draw(ctx, delta) {
     ctx.fillStyle = this.color;
-    ctx.fillRect(this.pos.x, this.pos.y, 40, 60);
-    ctx.drawImage(this.image, this.pos.x, this.pos.y, 40, 60);
+    const newPos = {
+      x: this.pos.x + this.directionX * this.speed,
+      y: this.pos.y + this.directionY * this.speed,
+    };
+    if (checkLimits(newPos)) {
+      this.pos = newPos;
+    }
+    ctx.fillRect(this.pos.x, this.pos.y, 20, 20);
+    ctx.drawImage(this.image, this.pos.x, this.pos.y, 20, 20);
   }
 
   keyboardEventDown(key) {
     if (key === "ArrowRight") {
-      this.pos.x += 6;
+      this.directionX = 1;
+      this.directionY = 0;
       console.log("right");
     } else if (key === "ArrowLeft") {
-      this.pos.x -= 6;
+      this.directionX = -1;
+      this.directionY = 0;
       console.log("left");
     } else if (key === "ArrowDown") {
-      this.pos.y += 6;
+      this.directionY = 1;
+      this.directionX = 0;
       console.log("down");
     } else if (key === "ArrowUp") {
-      this.pos.y -= 6;
+      this.directionY = -1;
+      this.directionX = 0;
       console.log("up");
     }
+  }
+  keyboardEventUp() {
+    this.directionX = 0;
+    this.directionY = 0;
+    console.log("para");
   }
 }
 

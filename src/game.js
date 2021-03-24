@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
 
   let lastFrame = 0;
   const render = (time) => {
-    let delta = (time - lastFrame) / 1000;
+    const delta = (time - lastFrame) / 1000;
     lastFrame = time;
     actors.forEach((actor) => actor.update && actor.update(delta));
     ctx.clearRect(0, 0, 600, 400);
@@ -27,5 +27,8 @@ window.addEventListener("load", () => {
 
   window.addEventListener("keydown", (e) => {
     actors.forEach((actor) => actor.keyboardEventDown(e.key));
+  });
+  window.addEventListener("keyup", (e) => {
+    actors.forEach((actor) => actor.keyboardEventUp(e.key));
   });
 });
