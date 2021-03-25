@@ -76,4 +76,4 @@ class Zelda {
   }
 }
 
-export default Zelda;
+export { Zelda };

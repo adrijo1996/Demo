@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable class-methods-use-this */
+import { randomX, randomY } from "../utils/randomPos";
+
 const RedRupee = require("../../assets/RedRupee.png");
 
 class Rupee {
-  constructor(pos = { x: 300, y: 300 }, color = "#0d9263") {
+  constructor(pos = { x: randomX(), y: randomY() }, color = "#0d9263") {
     this.color = color;
-    this.pos = pos;
+    this.pos = { x: randomX(), y: randomY() };
     this.angle = 30;
     this.x_speed = 5;
     this.direction_x = 1;
@@ -13,6 +15,11 @@ class Rupee {
     this.direction_y = 1;
     this.image = new Image();
     this.image.src = RedRupee;
+  }
+
+  update(frame) {
+    // this.pos.x = randomX();
+    // this.pos.y = randomY();
   }
 
   draw(ctx, delta) {
@@ -31,4 +38,4 @@ class Rupee {
   }, 2000); */
 }
 
-export default Rupee;
+export { Rupee };

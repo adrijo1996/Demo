@@ -1,5 +1,5 @@
 const checkLimits = (pos) => {
-  if (pos.x < 570 && pos.x > 10 && pos.y < 370 && pos.y > 10) {
+  if (pos.x < 580 && pos.x > 0 && pos.y < 380 && pos.y > 0) {
     return true;
   }
   return false;
