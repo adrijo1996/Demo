@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable class-methods-use-this */
 const RedRupee = require("../../assets/RedRupee.png");
 
 class Rupee {
@@ -18,8 +20,15 @@ class Rupee {
     ctx.fillRect(this.pos.x, this.pos.y, 30, 30);
     ctx.drawImage(this.image, this.pos.x, this.pos.y, 30, 30);
   }
+
   keyboardEventDown(key) {}
+
   keyboardEventUp(key) {}
+
+  /* setInterval(() => {
+    const rupeeAppears = new Rupee();
+    this.rupees.push(rupeeAppears);
+  }, 2000); */
 }
 
 export default Rupee;

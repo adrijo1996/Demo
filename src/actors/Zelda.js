@@ -1,6 +1,13 @@
+/* eslint-disable operator-linebreak */
+/* eslint-disable max-len */
+/* eslint-disable comma-dangle */
+/* eslint-disable no-restricted-properties */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable no-unused-vars */
 import checkLimits from "../utils/checklimits";
+import Rupee from "./Rupee";
 
-const RedRupee = require("../../assets/RedRupee.png");
+// const zeldasprites = require("../../assets/ZeldaSprites.png");
 
 class Zelda {
   constructor(pos = { x: 100, y: 100 }, color = "#0d9263") {
@@ -10,7 +17,7 @@ class Zelda {
     this.directionX = 0;
     this.directionY = 0;
     this.image = new Image();
-    this.image.src = RedRupee;
+    // this.image.src = zeldasprites;
   }
 
   draw(ctx, delta) {
@@ -30,25 +37,42 @@ class Zelda {
     if (key === "ArrowRight") {
       this.directionX = 1;
       this.directionY = 0;
-      console.log("right");
     } else if (key === "ArrowLeft") {
       this.directionX = -1;
       this.directionY = 0;
-      console.log("left");
     } else if (key === "ArrowDown") {
       this.directionY = 1;
       this.directionX = 0;
-      console.log("down");
     } else if (key === "ArrowUp") {
       this.directionY = -1;
       this.directionX = 0;
-      console.log("up");
     }
   }
-  keyboardEventUp() {
-    this.directionX = 0;
-    this.directionY = 0;
-    console.log("para");
+
+  keyboardEventUp(key) {
+    if (key === "ArrowRight") {
+      this.directionX = 0;
+    } else if (key === "ArrowLeft") {
+      this.directionX = 0;
+    } else if (key === "ArrowDown") {
+      this.directionY = 0;
+    } else if (key === "ArrowUp") {
+      this.directionY = 0;
+    }
+  }
+
+  find() {
+    let distance = 0;
+    Rupee.forEach((appear) => {
+      distance = 0;
+      distance = Math.sqrt(
+        Math.pow(this.position.x - appear.position.x) +
+          Math.pow(this.position.y - appear.position.y)
+      );
+      if (distance < 15) {
+        console.log("PLING");
+      }
+    });
   }
 }
 
