@@ -6,6 +6,7 @@
 /* eslint-disable no-unused-vars */
 import checkLimits from "../utils/checklimits";
 import Rupee from "./Rupee";
+import { myManager } from "../gameManager";
 
 // const zeldasprites = require("../../assets/ZeldaSprites.png");
 
@@ -21,6 +22,11 @@ class Zelda {
   }
 
   draw(ctx, delta) {
+    const imgWidth = { x: 0, y: 0 };
+    let imgOriginPOS = { x: 0, y: 0 };
+    if (myManager.remainderTime <= 0) {
+      imgOriginPOS = { x: 0, y: 0 };
+    }
     ctx.fillStyle = this.color;
     const newPos = {
       x: this.pos.x + this.directionX * this.speed,
@@ -67,7 +73,7 @@ class Zelda {
       distance = 0;
       distance = Math.sqrt(
         Math.pow(this.position.x - appear.position.x) +
-          Math.pow(this.position.y - appear.position.y)
+          Math.pow(this.position.y - appear.position.y),
       );
       if (distance < 15) {
         console.log("PLING");

@@ -1,12 +1,10 @@
 import { Zelda } from "./actors/Zelda";
-import { Manager } from "./gameManager";
+import { myManager } from "./gameManager";
 
 window.addEventListener("load", () => {
   const canvas = document.getElementById("root");
 
   const ctx = canvas.getContext("2d");
-
-  const myManager = new Manager();
 
   const actors = [new Zelda()];
 
@@ -15,6 +13,7 @@ window.addEventListener("load", () => {
     const coins = [...myManager.rupees];
     const delta = (time - lastFrame) / 1000;
     lastFrame = time;
+    coins.forEach((rupee) => myManager.getDistance(actors[0], rupee));
     const superActors = [...actors, ...coins];
     superActors.forEach((actor) => actor.update && actor.update(delta));
     ctx.clearRect(0, 0, 600, 400);

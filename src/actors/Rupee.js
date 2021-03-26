@@ -13,6 +13,7 @@ class Rupee {
     this.direction_x = 1;
     this.y_speed = 5;
     this.direction_y = 1;
+    this.state = true;
     this.image = new Image();
     this.image.src = RedRupee;
   }
@@ -23,9 +24,11 @@ class Rupee {
   }
 
   draw(ctx, delta) {
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.pos.x, this.pos.y, 30, 30);
-    ctx.drawImage(this.image, this.pos.x, this.pos.y, 30, 30);
+    if (this.state) {
+      ctx.fillStyle = this.color;
+      ctx.fillRect(this.pos.x, this.pos.y, 30, 30);
+      ctx.drawImage(this.image, this.pos.x, this.pos.y, 30, 30);
+    }
   }
 
   keyboardEventDown(key) {}

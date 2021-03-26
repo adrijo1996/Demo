@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import { Rupee } from "./actors/Rupee";
 
 class Manager {
@@ -5,6 +6,8 @@ class Manager {
     this.state = true;
     this.intervalID = null;
     this.rupees = [];
+    this.remainderTime = 0;
+    this.points = 0;
   }
 
   start() {
@@ -20,6 +23,20 @@ class Manager {
   stop() {
     this.state = false;
   }
+
+  getDistance(zelda, rupee) {
+    const xDiff = zelda.pos.x - rupee.pos.x;
+    const yDiff = zelda.pos.y - rupee.pos.y;
+    const distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+    // console.log(distance);
+    if (distance <= 30) {
+      this.points += 1;
+      rupee.state = false;
+    }
+    return distance;
+  }
 }
 
-export { Manager };
+const myManager = new Manager();
+
+export { myManager };
