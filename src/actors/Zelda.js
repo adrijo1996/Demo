@@ -6,21 +6,27 @@
 /* eslint-disable no-unused-vars */
 import checkLimits from "../utils/checklimits";
 import Rupee from "./Rupee";
+import { myManager } from "../gameManager";
 
-// const zeldasprites = require("../../assets/ZeldaSprites.png");
+const zeldasprites = require("../../assets/ZeldaSprites.png");
 
 class Zelda {
   constructor(pos = { x: 100, y: 100 }, color = "#0d9263") {
     this.color = color;
     this.pos = pos;
-    this.speed = 3;
+    this.speed = 1;
     this.directionX = 0;
     this.directionY = 0;
     this.image = new Image();
-    // this.image.src = zeldasprites;
+    this.image.src = zeldasprites;
   }
 
   draw(ctx, delta) {
+    const imgWidth = { x: 0, y: 0 };
+    let imgOriginPOS = { x: 0, y: 0 };
+    if (myManager.remainderTime <= 0) {
+      imgOriginPOS = { x: 0, y: 0 };
+    }
     ctx.fillStyle = this.color;
     const newPos = {
       x: this.pos.x + this.directionX * this.speed,
@@ -29,8 +35,18 @@ class Zelda {
     if (checkLimits(newPos)) {
       this.pos = newPos;
     }
-    ctx.fillRect(this.pos.x, this.pos.y, 20, 20);
-    ctx.drawImage(this.image, this.pos.x, this.pos.y, 20, 20);
+    ctx.fillRect(this.pos.x, this.pos.y, 5, 5);
+    ctx.drawImage(
+      this.image,
+      90,
+      140,
+      40,
+      50,
+      this.pos.x - 13,
+      this.pos.y - 27,
+      40,
+      50
+    );
   }
 
   keyboardEventDown(key) {

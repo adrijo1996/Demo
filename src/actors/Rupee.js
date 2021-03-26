@@ -13,29 +13,25 @@ class Rupee {
     this.direction_x = 1;
     this.y_speed = 5;
     this.direction_y = 1;
+    this.state = true;
+    this.points = 0;
     this.image = new Image();
     this.image.src = RedRupee;
   }
 
-  update(frame) {
-    // this.pos.x = randomX();
-    // this.pos.y = randomY();
-  }
+  update(frame) {}
 
   draw(ctx, delta) {
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.pos.x, this.pos.y, 30, 30);
-    ctx.drawImage(this.image, this.pos.x, this.pos.y, 30, 30);
+    if (this.state) {
+      ctx.fillStyle = this.color;
+      ctx.fillRect(this.pos.x, this.pos.y, 3, 3);
+      ctx.drawImage(this.image, this.pos.x - 13, this.pos.y - 12, 30, 30);
+    }
   }
 
   keyboardEventDown(key) {}
 
   keyboardEventUp(key) {}
-
-  /* setInterval(() => {
-    const rupeeAppears = new Rupee();
-    this.rupees.push(rupeeAppears);
-  }, 2000); */
 }
 
 export { Rupee };
