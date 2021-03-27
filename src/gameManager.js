@@ -1,3 +1,6 @@
+/* eslint-disable no-cond-assign */
+/* eslint-disable no-constant-condition */
+/* eslint-disable no-alert */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-param-reassign */
 /* eslint-disable class-methods-use-this */
@@ -12,6 +15,7 @@ class Manager {
     this.chrono = 60;
     this.remainderTime = 0;
     this.points = 0;
+    this.touched = false;
   }
 
   start() {
@@ -32,27 +36,35 @@ class Manager {
     const xDiff = zelda.pos.x - rupee.pos.x;
     const yDiff = zelda.pos.y - rupee.pos.y;
     const distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
-    if (distance <= 30) {
+    if (distance < 30) {
       this.points += 1;
       rupee.state = false;
+      this.touched = true;
+      if ((this.touched = true)) {
+        this.points += 0;
+      }
     }
     return distance;
   }
 
   update(delta) {
-    this.chrono -= 1 / 100;
-    // if(this.chrono === 0){}
+    if (this.chrono > 0) {
+      this.chrono -= 1 / 140;
+    } else {
+      this.chrono = 0;
+      alert(`Time over, you get ${this.points} rupees`);
+    }
   }
 
   getChrono() {
-    return this.chrono.toFixed(2);
+    return this.chrono.toFixed(1);
   }
 
   draw(ctx, delta) {
     ctx.translate(this.pos.x, this.pos.y);
-    ctx.font = "20px Arial";
+    ctx.font = "18px Arial";
     ctx.fillStyle = "black";
-    ctx.fillText(`CHRONO: ${this.getChrono()} RUPEES: ${this.points}`, 0, 0);
+    ctx.fillText(`TIMER: ${this.getChrono()} / RUPEES: ${this.points}`, 0, 0);
   }
 
   keyboardEventDown(key) {}

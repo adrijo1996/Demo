@@ -15,6 +15,7 @@ class Rupee {
     this.direction_y = 1;
     this.state = true;
     this.points = 0;
+    this.touched = false;
     this.image = new Image();
     this.image.src = RedRupee;
   }
