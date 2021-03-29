@@ -83,7 +83,7 @@ class Zelda {
       distance = 0;
       distance = Math.sqrt(
         Math.pow(this.position.x - appear.position.x) +
-          Math.pow(this.position.y - appear.position.y)
+          Math.pow(this.position.y - appear.position.y),
       );
       if (distance < 15) {
         console.log("PLING");

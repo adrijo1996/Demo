@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 import { Zelda } from "./actors/Zelda";
 import { myManager } from "./gameManager";
 
