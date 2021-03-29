@@ -36,19 +36,19 @@ class Manager {
     const xDiff = zelda.pos.x - rupee.pos.x;
     const yDiff = zelda.pos.y - rupee.pos.y;
     const distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
-    if (distance < 30) {
-      this.points += 1;
+    if (distance < 30 && rupee.touched === false) {
       rupee.state = false;
-      this.touched = true;
-      if ((this.touched = true)) {
-        this.points += 0;
-      }
+      this.points += 1;
+      rupee.touched = true;
     }
     return distance;
   }
 
-  update(delta) {
-    if (this.chrono > 0) {
+  /* getPoints(rupee) {
+  } */
+
+  update(delta, rupee) {
+    if (this.chrono >= 0) {
       this.chrono -= 1 / 140;
     } else {
       this.chrono = 0;

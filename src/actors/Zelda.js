@@ -5,13 +5,12 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable no-unused-vars */
 import checkLimits from "../utils/checklimits";
-import Rupee from "./Rupee";
 import { myManager } from "../gameManager";
 
 const zeldasprites = require("../../assets/ZeldaSprites.png");
 
 class Zelda {
-  constructor(pos = { x: 100, y: 100 }, color = "#0d9263") {
+  constructor(pos = { x: 280, y: 300 }, color = "#0d9263") {
     this.color = color;
     this.pos = pos;
     this.speed = 1;
@@ -42,10 +41,10 @@ class Zelda {
       140,
       40,
       50,
-      this.pos.x - 13,
+      this.pos.x - 10,
       this.pos.y - 27,
-      40,
-      50
+      30,
+      40
     );
   }
 
@@ -75,20 +74,6 @@ class Zelda {
     } else if (key === "ArrowUp") {
       this.directionY = 0;
     }
-  }
-
-  find() {
-    let distance = 0;
-    Rupee.forEach((appear) => {
-      distance = 0;
-      distance = Math.sqrt(
-        Math.pow(this.position.x - appear.position.x) +
-          Math.pow(this.position.y - appear.position.y)
-      );
-      if (distance < 15) {
-        console.log("PLING");
-      }
-    });
   }
 }
 
