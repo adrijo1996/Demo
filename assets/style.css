@@ -39,5 +39,8 @@ h1 {
 
 #root {
   border: 7px solid #0e5135;
-  background-color: white;
+  background-image: url("./pradera.png");
+  background-size: contain;
+  background-position: center;
+  box-sizing: border-box;
 }
