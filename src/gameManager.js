@@ -12,7 +12,7 @@ class Manager {
     this.intervalID = null;
     this.rupees = [];
     this.pos = pos;
-    this.chrono = 60;
+    this.chrono = 3;
     this.remainderTime = 0;
     this.points = 0;
     this.touched = false;
@@ -49,7 +49,6 @@ class Manager {
       this.chrono -= 1 / 140;
     } else {
       this.chrono = 0;
-      alert(`Time over, you get ${this.points} rupees`);
     }
   }
 

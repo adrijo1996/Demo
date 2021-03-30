@@ -2,6 +2,8 @@
 import { Zelda } from "./actors/Zelda";
 import { myManager } from "./gameManager";
 
+let reqAnimFram = 0;
+
 window.addEventListener("load", () => {
   const canvas = document.getElementById("root");
 
@@ -25,10 +27,15 @@ window.addEventListener("load", () => {
     });
     myManager.start();
 
-    window.requestAnimationFrame(render);
+    if (myManager.chrono <= 0) {
+      alert(`Time over, you get ${myManager.points} rupees`);
+      window.cancelAnimationFrame(reqAnimFram);
+    } else {
+      window.requestAnimationFrame(render);
+    }
   };
 
-  window.requestAnimationFrame(render);
+  reqAnimFram = window.requestAnimationFrame(render);
 
   window.addEventListener("keydown", (e) => {
     actors.forEach((actor) => actor.keyboardEventDown(e.key));
