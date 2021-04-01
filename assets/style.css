@@ -13,22 +13,22 @@ body {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 60px 110px 60px;
+  border-width: 0 45px 82.5px 45px;
   border-color: transparent transparent #d4ce46 transparent;
   position: relative;
-  margin: 15px auto 0 auto;
+  margin: 11px auto 0 auto;
   z-index: 2;
 }
 .triforce:before {
   content: "";
   display: block;
   border-style: solid;
-  border-width: 55px 30px 0 30px;
+  border-width: 41.25px 22.5px 0 22.5px;
   border-color: #0d9263 transparent transparent transparent;
   z-index: -1;
   position: relative;
-  left: -30px;
-  top: 55px;
+  left: -22.5px;
+  top: 41.25px;
 }
 
 h1 {
@@ -43,4 +43,14 @@ h1 {
   background-size: contain;
   background-position: center;
   box-sizing: border-box;
+}
+
+#start {
+  text-decoration: dashed;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #d4ce46;
+  background-color: #0e5135;
+  border-radius: 6px;
 }

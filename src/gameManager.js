@@ -12,10 +12,8 @@ class Manager {
     this.intervalID = null;
     this.rupees = [];
     this.pos = pos;
-    this.chrono = 3;
-    this.remainderTime = 0;
+    this.chrono = 30;
     this.points = 0;
-    this.touched = false;
   }
 
   start() {
@@ -37,6 +35,8 @@ class Manager {
     const yDiff = zelda.pos.y - rupee.pos.y;
     const distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
     if (distance < 30 && rupee.touched === false) {
+      const rupeeEncounter = document.getElementById("rupee");
+      rupeeEncounter.play();
       rupee.state = false;
       this.points += 1;
       rupee.touched = true;
@@ -60,7 +60,7 @@ class Manager {
     ctx.translate(this.pos.x, this.pos.y);
     ctx.font = "18px Arial";
     ctx.fillStyle = "black";
-    ctx.fillText(`TIMER: ${this.getChrono()} / RUPEES: ${this.points}`, 0, 0);
+    ctx.fillText(`TIME: ${this.getChrono()}  -  RUPEES: ${this.points}`, 0, 0);
   }
 
   keyboardEventDown(key) {}

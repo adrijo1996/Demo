@@ -10,7 +10,7 @@ import { myManager } from "../gameManager";
 const zeldasprites = require("../../assets/ZeldaSprites.png");
 
 class Zelda {
-  constructor(pos = { x: 280, y: 300 }, color = "#0d9263") {
+  constructor(pos = { x: 290, y: 275 }, color = "#0d9263") {
     this.color = color;
     this.pos = pos;
     this.speed = 1;

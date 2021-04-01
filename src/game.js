@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-alert */
 /* eslint-disable import/named */
 import { Zelda } from "./actors/Zelda";
 import { myManager } from "./gameManager";
@@ -8,6 +11,10 @@ window.addEventListener("load", () => {
   const canvas = document.getElementById("root");
 
   const ctx = canvas.getContext("2d");
+
+  const music = document.getElementById("music");
+  const hey = document.getElementById("hey");
+  const laugh = document.getElementById("laugh");
 
   const actors = [new Zelda(), myManager];
 
@@ -28,14 +35,29 @@ window.addEventListener("load", () => {
     myManager.start();
 
     if (myManager.chrono <= 0) {
-      alert(`Time over, you get ${myManager.points} rupees`);
       window.cancelAnimationFrame(reqAnimFram);
+      laugh.play();
+      music.pause();
+      const startAgain = window.confirm(
+        `Time over, you get ${myManager.points} rupees!!!\nPress start to play again`
+      );
+      if (startAgain) {
+        location.reload();
+      } else {
+        window.close();
+      }
     } else {
       window.requestAnimationFrame(render);
     }
   };
 
-  reqAnimFram = window.requestAnimationFrame(render);
+  const startButton = document.getElementById("start");
+
+  startButton.addEventListener("click", (_e) => {
+    hey.play();
+    //music.play();
+    reqAnimFram = window.requestAnimationFrame(render);
+  });
 
   window.addEventListener("keydown", (e) => {
     actors.forEach((actor) => actor.keyboardEventDown(e.key));
