@@ -12,7 +12,7 @@ class Manager {
     this.intervalID = null;
     this.rupees = [];
     this.pos = pos;
-    this.chrono = 30;
+    this.chrono = 60;
     this.points = 0;
   }
 

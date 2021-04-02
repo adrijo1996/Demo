@@ -5,9 +5,8 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable no-unused-vars */
 import checkLimits from "../utils/checklimits";
-import { myManager } from "../gameManager";
 
-const zeldasprites = require("../../assets/ZeldaSprites.png");
+const zeldaSprites = require("../../assets/ZeldaSprites.png");
 
 class Zelda {
   constructor(pos = { x: 290, y: 275 }, color = "#0d9263") {
@@ -17,15 +16,10 @@ class Zelda {
     this.directionX = 0;
     this.directionY = 0;
     this.image = new Image();
-    this.image.src = zeldasprites;
+    this.image.src = zeldaSprites;
   }
 
   draw(ctx, delta) {
-    const imgWidth = { x: 0, y: 0 };
-    let imgOriginPOS = { x: 0, y: 0 };
-    if (myManager.remainderTime <= 0) {
-      imgOriginPOS = { x: 0, y: 0 };
-    }
     ctx.fillStyle = this.color;
     const newPos = {
       x: this.pos.x + this.directionX * this.speed,

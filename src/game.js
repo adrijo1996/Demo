@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-alert */
@@ -13,6 +14,7 @@ window.addEventListener("load", () => {
   const ctx = canvas.getContext("2d");
 
   const music = document.getElementById("music");
+  music.volume = 0.2;
   const hey = document.getElementById("hey");
   const laugh = document.getElementById("laugh");
 
@@ -55,7 +57,7 @@ window.addEventListener("load", () => {
 
   startButton.addEventListener("click", (_e) => {
     hey.play();
-    //music.play();
+    music.play();
     reqAnimFram = window.requestAnimationFrame(render);
   });
 
