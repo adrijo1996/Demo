@@ -40,6 +40,8 @@ class Manager {
       rupee.state = false;
       this.points += 1;
       rupee.touched = true;
+      const eraseRupees = this.rupees.filter((erase) => rupee.touched === true);
+      console.log(eraseRupees);
     }
     return distance;
   }
